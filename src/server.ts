@@ -1,9 +1,11 @@
-import express from "express";
+import express from 'express';
+
+import { categoriesRouter } from './routers/categories.routes';
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (request, response) => response.json({ message: "Hello" }));
+app.use('/categories', categoriesRouter);
 
-app.listen(3333, () => console.log("Server is running"));
+app.listen(3333, () => console.log('Server is running'));
