@@ -19,7 +19,9 @@ async function ensureAuthenticated(
     throw new AppError('Token missing', 401);
   }
 
-  const [, token] = authHeader.split('');
+  console.warn(authHeader);
+
+  const [, token] = authHeader.split(' ');
 
   try {
     const { sub: user_id } = verify(
@@ -33,6 +35,8 @@ async function ensureAuthenticated(
     if (!user) {
       throw new AppError('User does not exists', 401);
     }
+
+    request.user = { id: user_id };
 
     next();
   } catch {
