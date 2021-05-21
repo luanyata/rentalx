@@ -19,8 +19,6 @@ async function ensureAuthenticated(
     throw new AppError('Token missing', 401);
   }
 
-  console.warn(authHeader);
-
   const [, token] = authHeader.split(' ');
 
   try {
