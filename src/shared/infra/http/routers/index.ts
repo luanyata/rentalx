@@ -2,18 +2,20 @@ import { Router } from 'express';
 
 import { authenticateRoutes } from './authenticate.routes';
 import { carsRoutes } from './car.routes';
-import { categoriesRouter } from './categories.routes';
-import { rentalRouter } from './rentals.routes';
-import { specificationsRouter } from './specifications.routes';
-import { usersRouter } from './users.routes';
+import { categoriesRoutes } from './categories.routes';
+import { passwordRoutes } from './password.routes';
+import { rentalRoutes } from './rentals.routes';
+import { specificationsRoutes } from './specifications.routes';
+import { usersRoutes } from './users.routes';
 
 const router = Router();
 
-router.use('/categories', categoriesRouter);
-router.use('/specifications', specificationsRouter);
-router.use('/users', usersRouter);
+router.use('/categories', categoriesRoutes);
+router.use('/specifications', specificationsRoutes);
+router.use('/users', usersRoutes);
 router.use('/cars', carsRoutes);
-router.use('/rentals', rentalRouter);
+router.use('/rentals', rentalRoutes);
+router.use('/password', passwordRoutes);
 router.use(authenticateRoutes);
 
 export { router };

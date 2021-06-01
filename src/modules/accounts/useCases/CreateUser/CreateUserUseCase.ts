@@ -9,28 +9,28 @@ import { AppError } from '@shared/errors/AppError';
 class CreateUserUseCase {
   constructor(
     @inject('UsersRepository')
-    private userRepository: IUsersRepository,
+    private usersRepository: IUsersRepository,
   ) {}
 
   async execute({
-    driver_license,
-    email,
     name,
+    email,
     password,
+    driver_license,
   }: ICreateUserDTO): Promise<void> {
-    const emailAlreadyExists = await this.userRepository.findByEmail(email);
+    const userAlreadyExists = await this.usersRepository.findByEmail(email);
+
+    if (userAlreadyExists) {
+      throw new AppError('User already exists');
+    }
 
     const passwordHash = await hash(password, 8);
 
-    if (emailAlreadyExists) {
-      throw new AppError('Email already exist');
-    }
-
-    await this.userRepository.create({
-      driver_license,
-      email,
+    await this.usersRepository.create({
       name,
+      email,
       password: passwordHash,
+      driver_license,
     });
   }
 }

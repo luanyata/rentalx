@@ -145,3 +145,14 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+node_modules
+.vscode
+tmp/*
+coverage
+.env
+!tmp/.gitkeep
+dist
+ormconfig.json
+package-lock.json

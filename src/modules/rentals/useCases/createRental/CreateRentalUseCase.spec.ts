@@ -86,6 +86,6 @@ describe('Create Rental', () => {
         car_id: 'test',
         expected_return_date: dayjs().toDate(),
       }),
-    ).rejects.toEqual(new AppError('Invalid return time.'));
+    ).rejects.toEqual(new AppError('Invalid return time!'));
   });
 });

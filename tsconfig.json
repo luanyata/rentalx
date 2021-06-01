@@ -14,9 +14,6 @@
       ],
       "@shared/*": [
         "shared/*"
-      ],
-      "@helpers/*": [
-        "helpers/*"
       ]
     },
     "esModuleInterop": true,

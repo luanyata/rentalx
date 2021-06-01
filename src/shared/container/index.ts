@@ -12,12 +12,12 @@ import { CategoriesRepository } from '@modules/cars/infra/typeorm/repositories/C
 import { SpecificationsRepository } from '@modules/cars/infra/typeorm/repositories/SpecificationsRepository';
 import { ICarsImagesRepository } from '@modules/cars/repositories/ICarsImagesRepository';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
-import { ICategoriesReporitory } from '@modules/cars/repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
 import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 
-container.registerSingleton<ICategoriesReporitory>(
+container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepository,
 );
